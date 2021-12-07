@@ -12,6 +12,13 @@ botaoAdicionar.addEventListener('click', function (event) {
 
     // create elemente, to insert new elements on html.
     var pacienteTr = montaTr(paciente);
+    
+    if(!validaPAciente(paciente)){
+        console.log('Paciente Inválido!')
+        window.alert('Peso inválido')
+        return;
+
+    }
 
     // capturar tabela para appendChild.
     var table = document.querySelector('#tabela-pacientes')
@@ -73,4 +80,14 @@ function montaTd(dado,classe){
     td.textContent = dado;
     td.classList.add(classe);
     return td;
+}
+
+// função Valida peso e Valida Altrura
+function validaPAciente(paciente){
+    if(validaPeso(paciente.peso)){
+        return true;
+    }else{
+        return false;
+    }
+    
 }
